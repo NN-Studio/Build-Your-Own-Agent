@@ -1,0 +1,48 @@
+{
+  "name": "build-your-own-agent",
+  "version": "0.1.0",
+  "description": "借鉴 Harness Engineering 等架构设计思想开发智能体，基于TypeScript原生开发",
+  "private": "true",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "test:unit": "ts-node ./test/unit.spec.ts",
+    "test:v1.chat.completions": "ts-node ./test/v1.chat.completions.ts",
+    "test:v1.models": "ts-node ./test/v1.models.ts",
+    "test:v1.embeddings": "ts-node ./test/v1.embeddings.ts",
+    "test:image_url": "ts-node ./test/image_url.ts",
+    "test:model": "ts-node ./test/model.ts",
+    "test:agent": "ts-node ./test/agent.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NN-Studio/Build-Your-Own-Agent.git"
+  },
+  "keywords": [
+    "AI",
+    "Agent",
+    "ChatGPT",
+    "OpenClaw",
+    "skills",
+    "MCP",
+    "harness"
+  ],
+  "author": {
+    "name": "zxl20070701",
+    "url": "https://zxl20070701.github.io/notebook/home.html"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NN-Studio/Build-Your-Own-Agent/issues"
+  },
+  "homepage": "https://github.com/NN-Studio/Build-Your-Own-Agent",
+  "devDependencies": {
+    "@oipage/testjs": "^0.1.1",
+    "@types/node": "^25.6.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@build-your-own-agent/agent": "workspace:^",
+    "@build-your-own-agent/model": "workspace:^",
+    "oipage": "^2.0.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "nodenext",
+        "target": "esnext",
+        "lib": [ // 启用的库
+            "esnext"
+        ],
+        "types": [
+            "node"
+        ],
+        "rootDir": "./", // 源码根目录
+        "strict": true,
+        "esModuleInterop": true, // ES 模块互操作
+        "skipLibCheck": true, // 跳过库检查
+        "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+        "declaration": true // 生成声明文件
+    }
+}

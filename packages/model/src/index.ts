@@ -16,8 +16,16 @@ class Model {
             let choices_handler = (choices: Array<any>) => {
                 for (let i = 0; i < choices.length; i++) {
 
-                    if (choices[i].delta.reasoning) {
-                        thinkback(choices[i].delta.reasoning)
+                    let reasoning = choices[i].delta.reasoning || choices[i].delta.reasoning_content
+                    if (reasoning) {
+
+                        if (/<\/think>/.test(reasoning)) {
+                            let reasoning_content = reasoning.split("</think>")
+                            reasoning = reasoning_content[0].replace("<think>", "")
+                            choices[i].delta.content = reasoning[1] + (choices[i].delta.content || "")
+                        }
+
+                        thinkback(reasoning)
                     }
 
                     if (choices[i].delta.content) {
@@ -27,7 +35,11 @@ class Model {
 
                     if (choices[i].delta.tool_calls) {
                         for (let tool_call of choices[i].delta.tool_calls) {
-                            tool_calls.push(tool_call)
+                            if (tool_call.id) {
+                                tool_calls.push(tool_call)
+                            } else {
+                                tool_calls[tool_calls.length - 1].function.arguments += tool_call.function.arguments
+                            }
                         }
                     }
 
@@ -45,7 +57,14 @@ class Model {
                 }, (res: any) => {
                     res.on('data', (chunk: any) => {
                         if (params.stream) {
-                            choices_handler(parseString(chunk.toString()).choices)
+                            let chunkValue = parseString(chunk.toString())
+                            if (Array.isArray(chunkValue)) {
+                                for (let i = 0; i < chunkValue.length; i++) {
+                                    choices_handler(chunkValue[i].choices)
+                                }
+                            } else {
+                                choices_handler(chunkValue.choices)
+                            }
                         } else {
                             data += chunk
                         }

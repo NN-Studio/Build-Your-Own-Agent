@@ -20,7 +20,7 @@ const readPlain = {
         },
     },
     "valueOf": function (args: any) {
-        return require("oipage/nodejs/disk/index.js").readPlain(args.filepath);
+        return require("oipage/nodejs/disk/index.js").readPlain(args.filepath)
     }
 }
 

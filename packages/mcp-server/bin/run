@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+"use strict"
+
+process.title = "@build-your-own-agent/mcp-server"
+
+console.log(">>>> MCP 服务器")

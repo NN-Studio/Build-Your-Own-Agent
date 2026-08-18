@@ -4,7 +4,9 @@
   "description": "借鉴 Harness Engineering 等架构设计思想开发智能体，基于TypeScript原生开发",
   "private": "true",
   "scripts": {
-    "start": "ts-node ./src/index.ts",
+    "start": "oipage-cli run \"npm run mcp\" \"npm run dev\"",
+    "mcp": "mcp-server",
+    "dev": "ts-node ./src/index.ts",
     "test:unit": "ts-node ./test/unit.spec.ts",
     "test:v1.chat.completions": "ts-node ./test/v1.chat.completions.ts",
     "test:v1.models": "ts-node ./test/v1.models.ts",
@@ -42,7 +44,10 @@
   },
   "dependencies": {
     "@build-your-own-agent/agent": "workspace:^",
+    "@build-your-own-agent/mcp-server": "workspace:^",
     "@build-your-own-agent/model": "workspace:^",
+    "@build-your-own-agent/use-skills": "workspace:^",
+    "@oipage/cli": "^0.2.1",
     "oipage": "^2.0.1"
   }
 }

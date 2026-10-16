@@ -1,0 +1,17 @@
+{
+    "name": "@build-your-own-agent/mcp-server",
+    "version": "0.1.0",
+    "type": "commonjs",
+    "main": "./src/index.ts",
+    "bin": {
+        "mcp-server": "bin/run"
+    },
+    "scripts": {
+        "dev": "ts-node ./src/index.ts",
+        "start": "node bin/run"
+    },
+    "devDependencies": {
+        "@types/node": "^25.6.0",
+        "ts-node": "^10.9.2"
+    }
+}

@@ -51,12 +51,19 @@ pnpm start
 下面是主要文件说明：
 
 ```
-- pageages/ # 依赖
-    - model/ # 和LLM模型交互的API
-    - agent/ # 单一智能体（ReAct模式）
+- packages/ # 拆分的子包（workspace 形式）
+    - model/         # 和 LLM 模型交互的 API
+    - agent/         # 单一智能体（ReAct 模式）
+    - tools/         # 本地工具集（读文件、搜索、执行命令等）
+    - use-skills/    # 把 src/skills/*/SKILL.md 拼成 systemPrompt
+    - mcp-server/    # 基于 stdio JSON-RPC 的 MCP 服务端
 - src/ # 源码
+    - skills/        # 预置的 Skill 包（每个含 SKILL.md 与 python 脚本）
+    - index.ts       # 启动入口（Agent + tools + use-skills）
+    - mcp.example.ts # MCP 客户端示例（A/B/C 三种用法）
 - test/ # 测试
-- config.js # 配置
+- Source-Code-Analysis/ # 源码解析文档
+- config.ts # 配置
 ```
 
 ## 源码解析
@@ -65,6 +72,9 @@ pnpm start
 
 - [如何和模型LLM交互?](./Source-Code-Analysis/model.md)
 - [遵循ReAct模式开发的基础智能体对象](./Source-Code-Analysis/agent.md)
+- [本地工具集（tools）的设计与实现](./Source-Code-Analysis/tools.md)
+- [如何让模型使用 Skills（systemPrompt 注入）](./Source-Code-Analysis/skills.md)
+- [MCP 服务端与示例（stdio JSON-RPC）](./Source-Code-Analysis/mcp.md)
 
 ## 版权
 

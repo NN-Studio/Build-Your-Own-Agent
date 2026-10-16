@@ -1,10 +1,11 @@
 import Model from "@build-your-own-agent/model"
 import Agent from "@build-your-own-agent/agent"
 import { logform } from "oipage/nodejs/logform/index.js"
+import { tools } from "@build-your-own-agent/tools"
 
 const agent = new Agent({
     model: new Model(),
-    tools: [],
+    tools,
     systemPrompt: "",
 })
 

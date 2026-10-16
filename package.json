@@ -48,6 +48,7 @@
     "@build-your-own-agent/mcp-server": "workspace:^",
     "@build-your-own-agent/model": "workspace:^",
     "@build-your-own-agent/tools": "workspace:^",
+    "@build-your-own-agent/use-skills": "workspace:^",
     "@oipage/cli": "^0.2.1",
     "oipage": "^2.0.1"
   }

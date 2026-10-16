@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+// bin/run：npm install 后 `mcp-server` 调到这里
+// 走 ts-node 即时编译 src/index.ts，免维护 dist/
+
+"use strict"
+
+process.title = "@build-your-own-agent/mcp-server"
+
+require("ts-node").register({
+    transpileOnly: true,
+    compilerOptions: {
+        module: "commonjs",
+        target: "es2020",
+        esModuleInterop: true,
+        moduleResolution: "node"
+    }
+})
+
+require('../src/index.ts')

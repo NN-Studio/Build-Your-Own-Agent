@@ -1,5 +1,6 @@
 import Model from "@build-your-own-agent/model"
 import Agent from "@build-your-own-agent/agent"
+import { join } from "path"
 
 const readPlain = {
     "description": {
@@ -20,7 +21,7 @@ const readPlain = {
         },
     },
     "valueOf": function (args: any) {
-        return require("oipage/nodejs/disk/index.js").readPlain(args.filepath)
+        return require("oipage/nodejs/disk/index.js").readPlain(join(process.cwd(), args.filepath))
     }
 }
 
